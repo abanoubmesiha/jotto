@@ -33,6 +33,13 @@ export const getSecretWord = () => {
                 type: actionTypes.SET_SECRET_WORD,
                 payload: 'train' //response.data
             })
+        }).catch(err=>{ 
+            console.log(err)
+            // For DEMO only.
+            dispatch({
+                type: actionTypes.SET_SECRET_WORD,
+                payload: 'train' 
+            })
         })
     }
 }
