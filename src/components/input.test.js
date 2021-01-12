@@ -1,10 +1,6 @@
-import React from 'react'
-import EnzymeAdapter from 'enzyme-adapter-react-16';
-import Enzyme, { shallow } from 'enzyme'
 import Input from './input'
 import { findByTestAttr, storeFactory } from '../../test/testUtils'
-
-Enzyme.configure({ adapter: new EnzymeAdapter() });
+import { shallow } from 'enzyme';
 
 const setup = (initialState = {}) => {
     const store = storeFactory(initialState);

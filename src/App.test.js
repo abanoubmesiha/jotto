@@ -1,10 +1,7 @@
+import { shallow } from 'enzyme';
 import React from 'react';
-import Enzyme,{ shallow } from 'enzyme';
-import EnzymeAdapter from 'enzyme-adapter-react-16';
 import { storeFactory } from '../test/testUtils';
 import App from './App';
-
-Enzyme.configure({ adapter: new EnzymeAdapter() })
 
 const setup = (state={}) => {
   const store = storeFactory(state);
