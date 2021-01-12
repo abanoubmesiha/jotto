@@ -1,3 +1,5 @@
+import { getLetterMatchCount } from '../helpers'
+
 export const actionTypes = {
     CORRECT_GUESS: 'CORRECT_GUESS',
     GUESS_WORD: 'GUESS_WORD'
@@ -5,12 +7,23 @@ export const actionTypes = {
 
 export const guessWord = (guessedWord) => {
     return function(dispatch, getState) {
-        
+        const secretWord = getState().secretWord;
+        const letterMatchCount = getLetterMatchCount(guessedWord, secretWord);
+
+        dispatch({
+            type: actionTypes.GUESS_WORD,
+            payload: { guessedWord, letterMatchCount }
+        });
+
+        if (secretWord === guessWord){
+            dispatch({ type: actionTypes.CORRECT_GUESS })
+        }
+
     }
 }
 
 
-// Move to from actions tests to Integration tests
+// Move from actions tests to Integration tests
 // export const correctGuess = () => {
 //     return {
 //         type: actionTypes.CORRECT_GUESS
