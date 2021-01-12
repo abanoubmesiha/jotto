@@ -15,7 +15,7 @@ export const guessWord = (guessedWord) => {
             payload: { guessedWord, letterMatchCount }
         });
 
-        if (secretWord === guessWord){
+        if (secretWord === guessedWord){
             dispatch({ type: actionTypes.CORRECT_GUESS })
         }
 
