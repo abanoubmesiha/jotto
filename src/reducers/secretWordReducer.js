@@ -1,3 +1,10 @@
+import { actionTypes } from "../actions";
+
 export const secretWord = (state=null, action) => {
-    return state
+    // switch (action.type) {
+    //     case actionTypes.SET_SECRECT_WORD:
+    //         return action.payload
+    //     default:
+            return state;
+    // }
 }
