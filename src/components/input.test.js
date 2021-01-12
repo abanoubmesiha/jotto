@@ -50,3 +50,16 @@ describe('word has been guessed', () => {
         expect(submitButton.length).toBe(0)
     })
 })
+describe('redux props', () => {
+    test('has success piece of state', () => {
+        const success = true;
+        const wrapper = setup({ success });
+        const successProp = wrapper.instance().props.success;
+        expect(successProp).toBe(success);
+    })
+    test('`guessWord` action creator is a function prop', () => {
+        const wrapper = setup();
+        const guessWordProp = wrapper.instance().props.guessWord;
+        expect(guessWordProp).toBeInstanceOf(Function)
+    })
+})
