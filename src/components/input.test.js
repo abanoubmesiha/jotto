@@ -73,7 +73,7 @@ describe('`guessWord action creator call', () => {
         wrapper = shallow(<UnconnectedInput {...props} />);
         wrapper.setState({ currentGuess: guessWord });
         const submitButton = findByTestAttr(wrapper, 'submit-button');
-        submitButton.simulate('click');
+        submitButton.simulate('click', {preventDefault(){}});
     });
     test('call `guessWord` when submit', () => {
         const guessWordCallCount = guessWordMock.mock.calls.length;
@@ -82,5 +82,8 @@ describe('`guessWord action creator call', () => {
     test('calls `guessWord` with input value as argument', () => {
         const guessWordArg = guessWordMock.mock.calls[0][0]
         expect(guessWordArg).toBe(guessWord);
+    })
+    test('clear input-box on submit', () => {
+        expect(wrapper.state('currentGuess')).toBe('');
     })
 })

@@ -17,6 +17,7 @@ export class UnconnectedApp extends Component {
         <h1>Jotto</h1>
         <Congrats success={success} />
         <Input />
+        <label className="text-danger">The secret word is {this.props.secretWord}</label>
         <GuessedWords guessedWords={guessedWords} />
       </div>
     );
