@@ -7,7 +7,7 @@ describe('getSecretWord action creator', () => {
     beforeEach(()=>{
         moxios.install();
     })
-    beforeEach(()=>{
+    afterEach(()=>{
         moxios.uninstall();
     })
     test('add response word to state', () => {
